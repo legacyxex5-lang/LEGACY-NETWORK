@@ -147,3 +147,6 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+# Cloudflare generated files
+.open-next/
+.wrangler/
