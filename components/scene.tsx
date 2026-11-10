@@ -12,52 +12,52 @@ function LabArchitecture() {
     <group>
       <mesh position={[0, -3.1, -13]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[18, 70]} />
-        <meshStandardMaterial color="#101b1b" metalness={0.72} roughness={0.42} />
+        <meshStandardMaterial color="#171611" metalness={0.72} roughness={0.42} />
       </mesh>
-      <gridHelper args={[18, 54, '#5e9b91', '#24413d']} position={[0, -3.06, -13]} />
+      <gridHelper args={[18, 54, '#8c7548', '#3c3526']} position={[0, -3.06, -13]} />
       <mesh position={[-9.1, 1, -13]}>
         <boxGeometry args={[0.28, 9, 70]} />
-        <meshStandardMaterial color="#101b1a" metalness={0.8} roughness={0.35} />
+        <meshStandardMaterial color="#161510" metalness={0.8} roughness={0.35} />
       </mesh>
       <mesh position={[9.1, 1, -13]}>
         <boxGeometry args={[0.28, 9, 70]} />
-        <meshStandardMaterial color="#101b1a" metalness={0.8} roughness={0.35} />
+        <meshStandardMaterial color="#161510" metalness={0.8} roughness={0.35} />
       </mesh>
       <mesh position={[0, 5.55, -13]}>
         <boxGeometry args={[18, 0.25, 70]} />
-        <meshStandardMaterial color="#101716" metalness={0.75} roughness={0.4} />
+        <meshStandardMaterial color="#15140f" metalness={0.75} roughness={0.4} />
       </mesh>
       {ribs.map((i) => (
         <group key={i} position={[0, 0, 8 - i * 2.65]}>
           <mesh position={[-8.8, 1.15, 0]}>
             <boxGeometry args={[0.16, 8.2, 0.18]} />
-            <meshStandardMaterial color="#3c625b" metalness={0.8} roughness={0.3} />
+            <meshStandardMaterial color="#665638" metalness={0.8} roughness={0.3} />
           </mesh>
           <mesh position={[8.8, 1.15, 0]}>
             <boxGeometry args={[0.16, 8.2, 0.18]} />
-            <meshStandardMaterial color="#3c625b" metalness={0.8} roughness={0.3} />
+            <meshStandardMaterial color="#665638" metalness={0.8} roughness={0.3} />
           </mesh>
           <mesh position={[0, 5.35, 0]}>
             <boxGeometry args={[17.6, 0.14, 0.18]} />
-            <meshStandardMaterial color="#3c625b" metalness={0.8} roughness={0.3} />
+            <meshStandardMaterial color="#665638" metalness={0.8} roughness={0.3} />
           </mesh>
           <mesh position={[-8.68, 1.1, 0.12]}>
             <boxGeometry args={[0.035, 7.7, 0.04]} />
-            <meshBasicMaterial color="#8fffe0" />
+            <meshBasicMaterial color="#d2b675" />
           </mesh>
           <mesh position={[8.68, 1.1, 0.12]}>
             <boxGeometry args={[0.035, 7.7, 0.04]} />
-            <meshBasicMaterial color="#8fffe0" />
+            <meshBasicMaterial color="#d2b675" />
           </mesh>
         </group>
       ))}
       {lights.map((i) => (
         <mesh key={i} position={[(i % 2 ? -1 : 1) * 5.9, 5.36, 5 - Math.floor(i / 2) * 2.1]}>
           <boxGeometry args={[1.7, 0.025, 0.045]} />
-          <meshBasicMaterial color="#a7ffe9" />
+          <meshBasicMaterial color="#d9c187" />
         </mesh>
       ))}
-      <fog attach="fog" args={['#07100f', 11, 48]} />
+      <fog attach="fog" args={['#080b0a', 11, 48]} />
     </group>
   );
 }
@@ -76,28 +76,28 @@ function Reactor({ position = [0, 0, -5] as [number, number, number] }) {
         <group ref={core}>
           <mesh>
             <icosahedronGeometry args={[1.35, 2]} />
-            <meshStandardMaterial color="#152d2a" metalness={0.95} roughness={0.18} wireframe />
+            <meshStandardMaterial color="#3c3120" metalness={0.95} roughness={0.18} wireframe />
           </mesh>
           <mesh>
             <icosahedronGeometry args={[0.86, 3]} />
-            <meshPhysicalMaterial color="#9affdf" emissive="#1a806b" emissiveIntensity={1.1} roughness={0.12} metalness={0.25} transmission={0.35} thickness={1.2} />
+            <meshPhysicalMaterial color="#d7bd7d" emissive="#8b6a32" emissiveIntensity={1.1} roughness={0.12} metalness={0.25} transmission={0.35} thickness={1.2} />
           </mesh>
           {[1.8, 2.25, 2.7].map((r, i) => (
             <mesh key={r} rotation={i === 0 ? [0.4, 0.2, 0] : i === 1 ? [1.2, 0.7, 0.4] : [0.2, 1.1, 1]}>
               <torusGeometry args={[r, i === 0 ? 0.025 : 0.012, 12, 180]} />
-              <meshBasicMaterial color={i === 0 ? '#9bffe0' : '#4a968c'} transparent opacity={0.8} />
+              <meshBasicMaterial color={i === 0 ? '#ead9aa' : '#887246'} transparent opacity={0.8} />
             </mesh>
           ))}
         </group>
       </Float>
-      <pointLight color="#74ffd6" intensity={24} distance={12} />
+      <pointLight color="#d5b66f" intensity={24} distance={12} />
       <mesh position={[0, -2.4, 0]}>
         <cylinderGeometry args={[2.1, 2.8, 0.22, 64]} />
-        <meshStandardMaterial color="#172b28" metalness={0.9} roughness={0.25} />
+        <meshStandardMaterial color="#292317" metalness={0.9} roughness={0.25} />
       </mesh>
       <mesh position={[0, -2.27, 0]}>
         <torusGeometry args={[2.15, 0.035, 10, 90]} />
-        <meshBasicMaterial color="#a1ffe5" />
+        <meshBasicMaterial color="#d9c187" />
       </mesh>
     </group>
   );
@@ -139,13 +139,13 @@ function FounderHalo() {
       </mesh>
       <mesh position={[0, 1.3, 0]} rotation={[0, 0, 0]}>
         <torusGeometry args={[2.15, 0.035, 12, 120]} />
-        <meshBasicMaterial color="#9bffe0" />
+        <meshBasicMaterial color="#ead9aa" />
       </mesh>
       <mesh position={[0, 1.3, -0.1]}>
         <sphereGeometry args={[1.2, 48, 48]} />
-        <meshPhysicalMaterial color="#274b44" metalness={0.55} roughness={0.2} transmission={0.22} transparent opacity={0.8} />
+        <meshPhysicalMaterial color="#3a3020" metalness={0.55} roughness={0.2} transmission={0.22} transparent opacity={0.8} />
       </mesh>
-      <pointLight position={[0, 2, 1]} color="#8dffdf" intensity={14} distance={9} />
+      <pointLight position={[0, 2, 1]} color="#d9c187" intensity={14} distance={9} />
     </group>
   );
 }
@@ -155,13 +155,13 @@ function ExitPortal() {
     <group position={[0, 1, -34]}>
       <mesh>
         <torusGeometry args={[3.1, 0.16, 24, 120]} />
-        <meshStandardMaterial color="#8dffe0" emissive="#42b89c" emissiveIntensity={1.5} metalness={0.7} roughness={0.18} />
+        <meshStandardMaterial color="#ead9aa" emissive="#8b6a32" emissiveIntensity={1.5} metalness={0.7} roughness={0.18} />
       </mesh>
       <mesh position={[0, 0, -0.25]}>
         <circleGeometry args={[2.92, 80]} />
-        <meshBasicMaterial color="#153a35" transparent opacity={0.62} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#2c2518" transparent opacity={0.62} side={THREE.DoubleSide} />
       </mesh>
-      <pointLight color="#8dffe0" intensity={30} distance={16} />
+      <pointLight color="#ead9aa" intensity={30} distance={16} />
     </group>
   );
 }
@@ -202,14 +202,14 @@ function CameraJourney() {
 function SceneContent() {
   return (
     <>
-      <color attach="background" args={['#07100f']} />
+      <color attach="background" args={['#080b0a']} />
       <ambientLight intensity={0.55} />
-      <hemisphereLight args={['#b8fff0', '#07100f', 1.1]} />
+      <hemisphereLight args={['#e6d7b0', '#080b0a', 1.1]} />
       <directionalLight position={[3, 8, 5]} intensity={2.2} color="#d6fff1" />
-      <pointLight position={[-6, 2, -12]} intensity={18} color="#287c70" distance={22} />
-      <pointLight position={[6, 1, -27]} intensity={15} color="#3d8f7d" distance={18} />
+      <pointLight position={[-6, 2, -12]} intensity={18} color="#7c6131" distance={22} />
+      <pointLight position={[6, 1, -27]} intensity={15} color="#896d39" distance={18} />
       <Stars radius={85} depth={55} count={1800} factor={2.2} saturation={0} fade speed={0.15} />
-      <Sparkles count={150} scale={[16, 9, 52]} size={1.8} speed={0.12} color="#a5ffe4" opacity={0.6} />
+      <Sparkles count={150} scale={[16, 9, 52]} size={1.8} speed={0.12} color="#d9c187" opacity={0.6} />
       <LabArchitecture />
       <Reactor />
       <ServiceInstallation position={[-3.7, -0.2, -14]} index={0} label="Web systems" />
