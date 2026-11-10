@@ -58,7 +58,7 @@ export default function HomeClient() {
         const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible) setActiveSection(visible.target.getAttribute('data-section') || 'arrival');
       }, { threshold: [0.25, 0.5, 0.75] });
-      sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer?.observe(section));
 
     });
 
